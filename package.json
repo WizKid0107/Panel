@@ -1,0 +1,27 @@
+{
+  "name": "@wizkid0107/panel",
+  "version": "0.1.0",
+  "description": "An open AGUI/artifact runtime for terminal AI agents.",
+  "type": "module",
+  "bin": {
+    "panel": "./src/cli.js"
+  },
+  "scripts": {
+    "start": "node src/cli.js",
+    "show": "node src/cli.js show examples/html/hello.html",
+    "code": "node src/cli.js code src/cli.js --line 120"
+  },
+  "keywords": [
+    "agui",
+    "artifacts",
+    "ai",
+    "cli",
+    "agents",
+    "panel"
+  ],
+  "author": "Ant",
+  "license": "AGPL-3.0-only",
+  "engines": {
+    "node": ">=20"
+  }
+}
