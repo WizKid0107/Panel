@@ -21,13 +21,19 @@ Desktop window shells, React runners, editable artifacts, and agent protocol int
 ## Quick Start
 
 ```bash
-npm run show
+npm run demo
 ```
 
 Show a file:
 
 ```bash
 node src/cli.js show examples/markdown/vision.md
+```
+
+Browse a folder:
+
+```bash
+node src/cli.js show examples
 ```
 
 Show a code file with a highlighted line:
@@ -59,6 +65,8 @@ CLI agent
 ```
 
 Panel is not an AI model and not a chat app. It is the visual runtime that an agent can call when text is the wrong output format.
+
+On macOS, Panel opens in a standalone app-style browser window when Chrome, Edge, or Brave is installed. It falls back to the default browser if no supported app window host is available.
 
 ## Roadmap
 

@@ -8,8 +8,10 @@
   },
   "scripts": {
     "start": "node src/cli.js",
+    "demo": "node src/cli.js demo",
     "show": "node src/cli.js show examples/html/hello.html",
-    "code": "node src/cli.js code src/cli.js --line 120"
+    "code": "node src/cli.js code src/cli.js --line 120",
+    "test": "node --test tests/*.test.js"
   },
   "keywords": [
     "agui",
