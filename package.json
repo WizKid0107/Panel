@@ -19,8 +19,8 @@
     "agents",
     "panel"
   ],
-  "author": "Ant",
-  "license": "AGPL-3.0-only",
+  "author": "Anthony",
+  "license": "MIT",
   "engines": {
     "node": ">=20"
   }
