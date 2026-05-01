@@ -2,6 +2,7 @@ import { stat } from "node:fs/promises";
 import { extname } from "node:path";
 
 import { renderCode } from "./renderers/code.js";
+import { renderDiff } from "./renderers/diff.js";
 import { renderDirectory } from "./renderers/directory.js";
 import { renderHtml } from "./renderers/html.js";
 import { renderImage } from "./renderers/image.js";
@@ -27,6 +28,7 @@ export function artifactTypeFor(filePath, fileStat) {
   if (ext === ".html" || ext === ".htm") return "html";
   if (ext === ".md" || ext === ".markdown") return "markdown";
   if (ext === ".json") return "json";
+  if (ext === ".diff" || ext === ".patch") return "diff";
   return "code";
 }
 
@@ -39,5 +41,6 @@ export async function renderArtifact(filePath, options, rootDir = null) {
   if (type === "html") return renderHtml(filePath, options, rootDir);
   if (type === "markdown") return renderMarkdown(filePath, options, rootDir);
   if (type === "json") return renderJson(filePath, options, rootDir);
+  if (type === "diff") return renderDiff(filePath, options, rootDir);
   return renderCode(filePath, options, rootDir);
 }

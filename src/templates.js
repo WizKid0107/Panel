@@ -204,6 +204,53 @@ export function baseCss() {
       border-radius: 8px;
       box-shadow: 0 20px 70px rgba(0,0,0,0.35);
     }
+    .diff {
+      max-width: 1100px;
+      margin: 0 auto;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      background: rgba(4, 7, 11, 0.72);
+      overflow-x: auto;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .dl-wrap {
+      display: inline-block;
+      min-width: 100%;
+      vertical-align: top;
+      padding: 6px 0;
+    }
+    .dl {
+      display: block;
+      white-space: pre;
+      padding: 1px 14px;
+      border-left: 3px solid transparent;
+    }
+    .dl.context { color: #c9d3e1; }
+    .dl.add {
+      background: rgba(117, 224, 173, 0.10);
+      border-left-color: rgba(117, 224, 173, 0.6);
+      color: #d6f5e3;
+    }
+    .dl.remove {
+      background: rgba(247, 130, 130, 0.10);
+      border-left-color: rgba(247, 130, 130, 0.6);
+      color: #f6cfcf;
+    }
+    .dl.hunk {
+      margin-top: 6px;
+      background: rgba(146, 117, 255, 0.12);
+      border-left-color: rgba(146, 117, 255, 0.6);
+      color: #c9bcff;
+    }
+    .dl.file {
+      background: rgba(255,255,255,0.04);
+      border-left-color: rgba(255,255,255,0.2);
+      color: #cbd6e6;
+      font-weight: 700;
+    }
+    .dl.meta { color: #657287; }
   `;
 }
 
