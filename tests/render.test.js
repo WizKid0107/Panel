@@ -3,7 +3,8 @@ import assert from "node:assert/strict";
 import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { artifactTypeFor, contentTypeFor, renderArtifact, renderCode } from "../src/artifacts.js";
+import { artifactTypeFor, contentTypeFor, renderArtifact } from "../src/artifacts.js";
+import { renderCode } from "../src/renderers/code.js";
 
 function tempDir(t) {
   const dir = mkdtempSync(join(tmpdir(), "panel-test-"));

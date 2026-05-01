@@ -6,12 +6,9 @@ import { resolve, sep } from "node:path";
 import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
-import {
-  contentTypeFor,
-  markdownToHtml,
-  renderArtifact,
-  renderCode,
-} from "./artifacts.js";
+import { contentTypeFor, renderArtifact } from "./artifacts.js";
+import { renderCode } from "./renderers/code.js";
+import { markdownToHtml } from "./renderers/markdown.js";
 import { escapeHtml, shellPage } from "./templates.js";
 
 const DEFAULT_PORT = 4317;

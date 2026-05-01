@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { markdownToHtml } from "../src/artifacts.js";
+import { markdownToHtml } from "../src/renderers/markdown.js";
 
 test("markdownToHtml renders headings h1/h2/h3", () => {
   const out = markdownToHtml("# H1\n## H2\n### H3");
