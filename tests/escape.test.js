@@ -3,7 +3,8 @@ import assert from "node:assert/strict";
 import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { escapeHtml, markdownToHtml, renderCode } from "../src/artifacts.js";
+import { markdownToHtml, renderCode } from "../src/artifacts.js";
+import { escapeHtml } from "../src/templates.js";
 
 test("escapeHtml escapes the five HTML-significant characters", () => {
   assert.equal(escapeHtml("<a>&\"'</a>"), "&lt;a&gt;&amp;&quot;&#039;&lt;/a&gt;");

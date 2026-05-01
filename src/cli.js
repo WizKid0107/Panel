@@ -8,12 +8,11 @@ import { fileURLToPath } from "node:url";
 
 import {
   contentTypeFor,
-  escapeHtml,
   markdownToHtml,
   renderArtifact,
   renderCode,
-  shellPage,
 } from "./artifacts.js";
+import { escapeHtml, shellPage } from "./templates.js";
 
 const DEFAULT_PORT = 4317;
 
