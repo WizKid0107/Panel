@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import { createServer } from "node:http";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { readFile, stat } from "node:fs/promises";
-import { resolve, sep } from "node:path";
+import { dirname, resolve, sep } from "node:path";
 import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
@@ -12,6 +12,9 @@ import { markdownToHtml } from "./renderers/markdown.js";
 import { escapeHtml, shellPage } from "./templates.js";
 
 const DEFAULT_PORT = 4317;
+
+const PKG_PATH = resolve(dirname(fileURLToPath(import.meta.url)), "..", "package.json");
+export const VERSION = JSON.parse(readFileSync(PKG_PATH, "utf8")).version;
 
 const MAC_BROWSER_CANDIDATES = [
   ["Google Chrome", "/Applications/Google Chrome.app"],
@@ -184,9 +187,22 @@ export async function serve(filePath, options) {
   const rootStat = resolved ? await stat(resolved) : null;
   const browseRoot = rootStat?.isDirectory() ? resolved : null;
 
+  const artifacts = new Set();
+  if (resolved) artifacts.add(resolved);
+
   const server = createServer(async (req, res) => {
     try {
       const url = new URL(req.url || "/", `http://${req.headers.host || "127.0.0.1"}`);
+
+      if (url.pathname === "/health") {
+        res.writeHead(200, { "content-type": "application/json; charset=utf-8" });
+        res.end(JSON.stringify({
+          ok: true,
+          version: VERSION,
+          activeArtifacts: artifacts.size,
+        }));
+        return;
+      }
 
       if (options.command === "demo") {
         const html = await renderDemo(url, options);
